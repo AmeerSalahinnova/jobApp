@@ -4474,3 +4474,12 @@ node_modules/yn/package.json
 node_modules/yn/readme.md
 dist/routes/jobs.js
 dist/routes/jobs.js.map
+dist/index.js
+dist/index.js.map
+dist/controllers/jobs.js
+dist/controllers/jobs.js.map
+dist/data/operations.js
+dist/data/operations.js.map
+dist/shared/responseHelper.js
+dist/shared/responseHelper.js.map
+dist/views/index.ejs
