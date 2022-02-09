@@ -16,7 +16,6 @@ export const createDate = async (incomingData: any) => {
   try {
     const data = await getData();
     const jobs = data.jobs;
-    console.log(jobs);
     const founded = jobs.find((item: any) => item.id === incomingData.id);
     if (!founded) {
       jobs.push({ uuid: uuidv4(), ...incomingData });
