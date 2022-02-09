@@ -16,6 +16,7 @@ export const createDate = async (incomingData: any) => {
   try {
     const data = await getData();
     const jobs = data.jobs;
+    console.log(jobs);
     const founded = jobs.find((item: any) => item.id === incomingData.id);
     if (!founded) {
       jobs.push({ uuid: uuidv4(), ...incomingData });
@@ -23,7 +24,7 @@ export const createDate = async (incomingData: any) => {
       const res = await writeFile("jobs.json", JSON.stringify(data));
       return res;
     }else{
-      return "not Founded";
+      return "already exist";
     }
   } catch (err) {
     console.error(err);

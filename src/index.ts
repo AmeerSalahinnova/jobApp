@@ -2,10 +2,18 @@ import express from "express";
 import path from "path";
 import jobsRouter from "./routes/jobs";
 import { responseHelper } from "./shared/responseHelper";
-import cors from "cors"
+import * as bodyParser from "body-parser";
+
 
 const app = express();
 const port = 8080; // default port to listen
+
+app.use(bodyParser.json({'limit': '50mb'}));
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from

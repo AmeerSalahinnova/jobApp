@@ -30,10 +30,10 @@ export const getJobByID = async (req: any, res: any, next: any) => {
 
 export const createJob = async (req: any, res: any, next: any) => {
   try {
-    const result: any = await dataOperation.createDate({
-      id: 1,
-      name: "ameer",
-    });
+    if(!req.body.id || !req.body.name){
+      responseHelper.invalid(req, res, {}, "Please Add Require fields");
+    }
+    const result: any = await dataOperation.createDate(req.body);
     if (result === "already exist") {
       responseHelper.invalid(req, res, {}, result);
     }else{
